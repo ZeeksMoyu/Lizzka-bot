@@ -1,0 +1,26 @@
+{
+  "name": "telegram-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for tattoo and manicure services",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
+  },
+  "dependencies": {
+    "csv-stringify": "^6.5.2",
+    "dotenv": "^16.6.1",
+    "grammy": "^1.37.0",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7",
+    "telegraf": "^4.16.3",
+    "telegraf-session-local": "^2.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

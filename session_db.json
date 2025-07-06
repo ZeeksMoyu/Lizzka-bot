@@ -1,0 +1,31 @@
+{
+  "sessions": [
+    {
+      "id": "471050294:471050294",
+      "data": {
+        "waitingForContact": false,
+        "lang": "pl",
+        "service": "manicure",
+        "adminMode": false
+      }
+    },
+    {
+      "id": "471050294",
+      "data": {
+        "waitingForContact": false,
+        "lang": null,
+        "service": null,
+        "adminMode": false
+      }
+    },
+    {
+      "id": "766354251:766354251",
+      "data": {
+        "waitingForContact": false,
+        "lang": null,
+        "service": null,
+        "adminMode": false
+      }
+    }
+  ]
+}
