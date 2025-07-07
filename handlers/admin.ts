@@ -1,5 +1,6 @@
 import { Bot } from 'grammy';
-import { getAdminKeyboard, getMainMenu } from '../keyboards/admin';
+import { getAdminKeyboard } from '../keyboards/admin';
+import { getMainMenu } from '../keyboards/main';
 import type { MyContext } from '../types';
 import config from '../config/config';
 import { PrismaClient } from '@prisma/client';
@@ -75,7 +76,10 @@ export default function setupAdminHandlers(bot: Bot<MyContext>, prisma: PrismaCl
         ctx.session.adminMode = false;
         await ctx.reply(
             ctx.session.lang === 'ua' ? '🔙 Ви вийшли з адмін-панелі' : '🔙 Wyjście z panelu admina',
-            { reply_markup: getMainMenu(ctx.session.lang, ctx.session.service ?? 'tattoo') }
+            {
+                // Теперь эта функция импортируется напрямую
+                reply_markup: getMainMenu(ctx.session.lang, ctx.session.service ?? 'tattoo')
+            }
         );
     });
 }

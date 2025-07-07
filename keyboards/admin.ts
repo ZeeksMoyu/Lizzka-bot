@@ -1,5 +1,4 @@
 import { Keyboard } from 'grammy';
-import { getMainMenu } from './main';
 
 export function getAdminKeyboard() {
     return new Keyboard()
@@ -8,5 +7,3 @@ export function getAdminKeyboard() {
         .text('Тату записи').text('Назад')
         .resized();
 }
-
-export { getMainMenu };

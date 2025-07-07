@@ -1,6 +1,6 @@
 import { Bot, session } from 'grammy';
 import { FileAdapter } from '@grammyjs/storage-file';
-import setupMainMenuHandlers from './handlers/main';
+import  setupMainMenuHandlers from './handlers/main';
 import config from './config/config';
 import prisma from './config/database';
 import { MyContext, SessionData } from './types';
