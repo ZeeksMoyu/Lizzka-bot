@@ -1,7 +1,6 @@
 require('dotenv').config({ path: '.env' });
 
 const { Bot, session } = require('grammy');
-const { sequelize } = require('./models');
 const config = require('./config/config');
 
 // Инициализация бота
@@ -42,10 +41,6 @@ bot.catch((err) => {
 // Запуск бота
 async function startBot() {
     try {
-        await sequelize.authenticate();
-        await sequelize.sync();
-        console.log('🔌 База данных подключена');
-
         await bot.start();
         console.log('🤖 Бот успешно запущен');
         console.log(`🆔 Ваши ADMIN_IDS: ${config.ADMIN_IDS.join(', ')}`);
