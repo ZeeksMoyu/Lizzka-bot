@@ -6,13 +6,13 @@
   "scripts": {
     "start": "ts-node bot.ts",
     "build": "tsc",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev"
+    "prod": "node dist/bot.js",
+    "dev": "nodemon --exec ts-node bot.ts"
   },
+  "type": "commonjs",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@grammyjs/storage-file": "^2.5.1",
     "@prisma/client": "^6.11.1",

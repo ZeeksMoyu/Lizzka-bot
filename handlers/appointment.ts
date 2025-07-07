@@ -2,10 +2,9 @@ import { Bot } from 'grammy';
 import { getMainMenu } from '../keyboards/main';
 import type { MyContext } from '../types';
 import { PrismaClient } from '@prisma/client';
-import { InlineKeyboard } from 'grammy';
+
 
 export default function setupAppointmentHandlers(bot: Bot<MyContext>, prisma: PrismaClient) {
-    const galleryUrl = "https://telegra.ph/Galereya-shole-07-02";
 
     bot.hears(['Галерея', 'Galeria'], async (ctx) => {
         try {
@@ -75,7 +74,7 @@ export default function setupAppointmentHandlers(bot: Bot<MyContext>, prisma: Pr
 
         await ctx.reply(
             lang === 'ua' ? "Дякуємо! Ми зв'яжемося з вами." : "Dziękujemy! Skontaktujemy się wkrótce.",
-            { reply_markup: getMainMenu(lang, ctx.session.service) }
+            { reply_markup: getMainMenu(ctx.session.lang, ctx.session.service ?? 'tattoo') }
         );
 
         ctx.session.waitingForContact = false;
