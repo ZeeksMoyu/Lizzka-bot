@@ -41,7 +41,7 @@ bot.catch((err) => {
 // Запуск бота
 async function startBot() {
     try {
-        await bot.start();
+        bot.start();
         console.log('🤖 Бот успешно запущен');
         console.log(`🆔 Ваши ADMIN_IDS: ${config.ADMIN_IDS.join(', ')}`);
     } catch (error) {
