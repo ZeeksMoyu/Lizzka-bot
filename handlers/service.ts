@@ -1,5 +1,4 @@
 import { Bot } from 'grammy';
-import { getMainMenu } from '../keyboards/main';
 import type { MyContext } from '../types';
 
 export default function setupServiceHandlers(bot: Bot<MyContext>) {
@@ -16,7 +15,7 @@ export default function setupServiceHandlers(bot: Bot<MyContext>) {
             ctx.session.service = text.includes('Tattoo') || text.includes('Тату')
                 ? 'tattoo'
                 : 'manicure';
-
+            const { getMainMenu } = await import('../keyboards/main');
             // Тексты приветствия
             const welcomeTexts = {
                 tattoo: {
