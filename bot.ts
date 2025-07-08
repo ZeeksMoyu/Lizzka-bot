@@ -4,6 +4,7 @@ import  setupMainMenuHandlers from './handlers/main';
 import config from './config/config';
 import prisma from './config/database';
 import { MyContext, SessionData } from './types';
+import { commands } from "./locales/commands";
 
 // Импорт обработчиков
 import setupStartHandlers from './handlers/start';
@@ -18,6 +19,7 @@ const bot = new Bot<MyContext>(config.BOT_TOKEN);
 const storage = new FileAdapter({
     dirName: 'sessions'
 });
+
 
 bot.use(
     session({
@@ -51,9 +53,11 @@ bot.catch((err) => {
         console.log('✅ Подключено к базе данных');
 
         await bot.start({
-            onStart: (info) => {
+            onStart: async (info) => {
                 console.log(`🤖 Бот @${info.username} запущен`);
                 console.log(`🆔 ID администраторов: ${config.ADMIN_IDS.join(', ')}`);
+
+
             }
         });
     } catch (error) {
