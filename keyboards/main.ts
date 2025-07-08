@@ -3,9 +3,10 @@ import { Keyboard } from 'grammy';
 export function getMainMenu(
     lang: 'pl' | 'ua',
     service: 'tattoo' | 'manicure',
+    galleryUrl?: string,
     showMainMenuBtn: boolean = true  // Новый параметр с значением по умолчанию
 ) {
-    const galleryUrl = "https://telegra.ph/Galereya-shole-07-02";
+    const defaultGalleryUrl = "https://telegra.ph/Galereya-shole-07-02";
 
     const texts = {
         tattoo: {
@@ -36,7 +37,7 @@ export function getMainMenu(
 
     const t = texts[service][lang];
     const keyboard = new Keyboard()
-        .webApp(t.gallery, galleryUrl)
+        .webApp(t.gallery, galleryUrl || defaultGalleryUrl)
         .row()
         .text(t.appointment);
 

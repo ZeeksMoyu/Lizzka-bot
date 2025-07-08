@@ -4,7 +4,6 @@ import  setupMainMenuHandlers from './handlers/main';
 import config from './config/config';
 import prisma from './config/database';
 import { MyContext, SessionData } from './types';
-import { commands } from "./locales/commands";
 
 // Импорт обработчиков
 import setupStartHandlers from './handlers/start';

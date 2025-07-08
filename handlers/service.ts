@@ -1,5 +1,6 @@
 import { Bot } from 'grammy';
 import type { MyContext } from '../types';
+import {galleryLinks} from "../utils/galleryLinks";
 
 export default function setupServiceHandlers(bot: Bot<MyContext>) {
     bot.hears(['🖤 Tattoo', '🖤 Тату', '💅 Manicure', '💅 Манікюр'], async (ctx) => {
@@ -27,14 +28,18 @@ export default function setupServiceHandlers(bot: Bot<MyContext>) {
                     ua: 'Ласкаво просимо до розділу манікюру!'
                 }
             };
+            const lang = ctx.session?.lang || 'pl';
+            const service = ctx.session?.service || 'manicure';
+            const galleryUrl = galleryLinks[service] || galleryLinks.manicure;
 
             // Отправляем ответ
             await ctx.reply(
                 welcomeTexts[ctx.session.service][ctx.session.lang || 'pl'],
                 {
                     reply_markup: getMainMenu(
-                        ctx.session.lang || 'pl',
-                        ctx.session.service
+                        lang || 'pl',
+                        service,
+                        galleryUrl,
                     ),
                     parse_mode: 'HTML'
                 }
