@@ -7,6 +7,21 @@ import {galleryLinks} from "../utils/galleryLinks";
 
 export default function setupAppointmentHandlers(bot: Bot<MyContext>, prisma: PrismaClient) {
 
+    bot.hears(['Записатися', 'Umów wizytę'], async (ctx) => {
+        const lang = ctx.session?.lang || 'pl';
+        ctx.session.waitingForContact = true;
+
+        const example = lang === 'ua'
+            ? "Наприклад: Іван +380123456789"
+            : "Na przykład: Jan +48123456789";
+
+        await ctx.reply(
+            lang === 'ua'
+                ? `Будь ласка, введіть своє ім'я та телефон у форматі:\n${example}`
+                : `Proszę podać swoje imię i telefon w formacie:\n${example}`
+        );
+    });
+
     bot.on('message:text', async (ctx) => {
         if (!ctx.session.waitingForContact) return;
 
